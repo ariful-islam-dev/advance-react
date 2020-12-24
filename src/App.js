@@ -1,37 +1,54 @@
-import React, { Fragment } from "react";
-import "./App.css";
+import React, { Component } from "react";
+import Header from "./components/Header";
+import Loading from "./components/Loading";
+import NewsList from "./components/NewsList";
+import Pagination from "./components/Pagination";
+import { newsCategory } from "./news";
 
-const Wrapper = ({children})=> children
+const fakeNews = [
+  {
+    title: "Title",
+    content: "Content",
+    url: "https://linktonews.com",
+    urlToImage: "https://linktoimage.com",
+    publishedAt: "published date and time",
+    source: {
+      name: "CNN",
+    },
+  },
+  {
+    title: "Title",
+    content: "Content",
+    url: "https://linktonews.com",
+    urlToImage: "https://linktoimage.com",
+    publishedAt: "published date and time",
+    source: {
+      name: "CNN",
+    },
+  },
+];
 
-function Demo() {
-  return (
-    <Fragment>
-      <h1>Hello</h1>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
-    </Fragment>
-  );
-}
-
-const App = (props) => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome to React Advance Course</h1>
-        <Demo/>
-      </header>
+export class App extends Component {
+  render() {
+    return (
+      <div className="container-md">
+        <div className="row">
+          <div className="col-sm-6 offset-md-3">
+            <Header category={newsCategory.technology} />
+            <div className="d-flex">
+              <p className="text-black-50">About {0} Result Found</p>
+              <p className="text-black-50 ms-auto">
+                {1} page of {100}
+              </p>
+            </div>
+            <NewsList news={fakeNews} />
+            <Pagination />
+            <Loading/>
+          </div>
+        </div>
       </div>
-    
-  );
-};
+    );
+  }
+}
 
 export default App;
