@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
 import NewsList from "./components/NewsList";
@@ -28,6 +29,24 @@ const fakeNews = [
   },
 ];
 
+const URL = "https://jsonplaceholder.typicode.com/users";
+axios.get(URL)
+  .then(res=>{
+    console.log(res.data);
+  })
+
+  const user =  {
+    "name": "Ariful Islam",
+    "username": "arif",
+    "email": "ariful4082@gmail.com",
+    
+}
+axios.post(URL, user)
+  .then(res=>{
+    console.log(res);
+  })
+
+
 export class App extends Component {
   render() {
     return (
@@ -43,7 +62,7 @@ export class App extends Component {
             </div>
             <NewsList news={fakeNews} />
             <Pagination />
-            <Loading/>
+            <Loading />
           </div>
         </div>
       </div>
