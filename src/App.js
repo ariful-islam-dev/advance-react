@@ -5,7 +5,7 @@ import Loading from "./components/Loading";
 import NewsList from "./components/NewsList";
 import Pagination from "./components/Pagination";
 import { newsCategory } from "./news";
-import Lifecycle from "./lifecycle";
+// import Lifecycle from "./lifecycle";
 
 const fakeNews = [
   {
@@ -46,7 +46,7 @@ axios.post(URL, user)
   .then(res=>{
     // console.log(res.data);
   })
-
+//NewsAPI = 
 
 export class App extends Component {
   render() {
@@ -54,8 +54,8 @@ export class App extends Component {
       <div className="container-md">
         <div className="row">
           <div className="col-sm-6 offset-md-3">
-            <Lifecycle count={100}/>
-            {/* <Header category={newsCategory.technology} />
+            {/* <Lifecycle count={100}/> */}
+            <Header category={newsCategory.technology} />
             <div className="d-flex">
               <p className="text-black-50">About {0} Result Found</p>
               <p className="text-black-50 ms-auto">
@@ -64,7 +64,7 @@ export class App extends Component {
             </div>
             <NewsList news={fakeNews} />
             <Pagination />
-            <Loading /> */}
+            <Loading />
           </div>
         </div>
       </div>
