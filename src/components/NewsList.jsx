@@ -8,7 +8,7 @@ function NewsList({ news }) {
                 news && news.length === 0 && <h4>There is No News</h4>
             }
             {
-                news && news.map(item => <NewsItem key={item.title} item={item} />)
+                news && news.map((item, index) => <NewsItem key={index} item={item} />)
             }
             
         </div>

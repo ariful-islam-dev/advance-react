@@ -29,14 +29,14 @@ export class Header extends Component {
                     onKeyPress={this.handleKeyPress}
                 />
                 <div className="my-4">
-                    {newsCategory && Object.keys(newsCategory).map((item) => {
+                    {newsCategory && Object.keys(newsCategory).map((item, index) => {
                         if(category === newsCategory[item]){
-                            return <button className="btn btn-sm btn-warning mr-2 mb-2">
+                            return <button key={index} className="btn btn-sm btn-warning mr-2 mb-2">
                                 {`#${newsCategory[item]}`}
                             </button>
                         }else{
 
-                            return <button className="btn btn-sm btn-light mr-2 mb-2">
+                            return <button key={index} className="btn btn-sm btn-light mr-2 mb-2">
                                 {`#${newsCategory[item]}`}
                             </button>
                         }
