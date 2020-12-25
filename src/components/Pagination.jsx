@@ -16,7 +16,7 @@ export class Pagination extends Component {
                         />
                     ) : (
                             <p
-                                style={{ userSelect: 'none', lineHeight: '1.1' }}
+                                style={{ userSelect: 'none', lineHeight: '1.1' , width: '100%'}}
                                 title="Double Tap to Jump Page"
                                 onDoubleClick={() => { this.setState({ isEditable: !this.state.isEditable }) }}
                             >
