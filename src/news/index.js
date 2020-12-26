@@ -7,7 +7,7 @@ export const newsCategory = {
   entertainment: "entertainment",
   general: "general",
   health: "health",
-  sports: " sports",
+  sports: "sports",
 };
 
 const MAX_ITEM_PER_PAGE = 10;

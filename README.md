@@ -1,2 +1,2 @@
 # React Advance Fetures
-Video 7.1 done
+We are using this project React Class base component and Lifecycle Methon as well as JSOOP
