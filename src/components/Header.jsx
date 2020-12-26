@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import  newsCategory  from '../news'
+import { newsCategory } from '../news/index'
 
 export class Header extends Component {
     state = {
@@ -10,11 +10,13 @@ export class Header extends Component {
             searchTerm: e.target.value
         })
     }
-    handleKeyPress = () => {
-
+    handleKeyPress = (e) => {
+        if(e.key=== 'Enter'){
+            this.props.search(this.state.searchTerm)
+        }
     }
     render() {
-        const { category , changeCategory} = this.props;
+        const { category, changeCategory } = this.props;
         return (
             <div className="my-4">
                 <h1 className="mb-4" style={{ fontWeight: '300' }}>
@@ -30,13 +32,13 @@ export class Header extends Component {
                 />
                 <div className="my-4">
                     {newsCategory && Object.keys(newsCategory).map((item, index) => {
-                        if(category === newsCategory[item]){
-                            return <button key={index} onClick={()=>changeCategory(newsCategory[item])} className="btn btn-sm btn-warning mr-3 mb-2">
+                        if (category === newsCategory[item]) {
+                            return <button key={index} onClick={() => changeCategory(newsCategory[item])} className="btn btn-sm btn-warning mr-3 mb-2">
                                 {`#${newsCategory[item]}`}
                             </button>
-                        }else{
+                        } else {
 
-                            return <button onClick={()=>this.props.changeCategory(newsCategory[item])} key={index} className="btn btn-sm btn-light mr-3 mb-2">
+                            return <button onClick={() => this.props.changeCategory(newsCategory[item])} key={index} className="btn btn-sm btn-light mr-3 mb-2">
                                 {`#${newsCategory[item]}`}
                             </button>
                         }
