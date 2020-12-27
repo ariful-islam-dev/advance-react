@@ -13,7 +13,7 @@ export class App extends Component {
     data: {},
     isLoading: true,
   };
-
+  // aboutResult = React.createRef();
   componentDidMount() {
     news
       .getNews()
@@ -28,6 +28,8 @@ export class App extends Component {
         alert("Somthing Went Wrong");
         this.setState({ isLoading: false });
       });
+      //Using Ref
+      // console.dir(this.aboutResult.current);
   }
   next = () => {
     if (this.state.data.isNext) {
@@ -139,6 +141,7 @@ search = searchTerm => {
   };
 
   render() {
+    
     const {
       articles,
       isPrevious,
@@ -152,9 +155,8 @@ search = searchTerm => {
       <div className="container-md">
         <div className="row">
           <div className="col-sm-6 offset-md-3">
-            {/* <Lifecycle count={100}/> */}
             <Header category={category} changeCategory={this.changeCategory} search={this.search} />
-            <div className="d-flex">
+            <div  className="d-flex">
               <p className="text-black-50">About {totalResults} Result Found</p>
               <p className="text-black-50 ms-auto">
                 {currentPage} page of {totalPage}
