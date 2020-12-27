@@ -5,7 +5,7 @@ export class Header extends Component {
     state = {
         searchTerm: ''
     }
-    searchBarRef = React.createRef();
+    // searchBarRef = React.createRef();
 
     handleChange = (e) => {
         this.setState({
@@ -13,13 +13,13 @@ export class Header extends Component {
         })
     }
     handleKeyPress = (e) => {
-        if(e.key=== 'Enter'){
+        if (e.key === 'Enter') {
             this.props.search(this.state.searchTerm)
         }
     }
-    componentDidMount(){
-       this.searchBarRef.current.focus();
-    }
+    // componentDidMount() {
+    //     this.searchBarRef.current.focus();
+    // }
     render() {
         const { category, changeCategory } = this.props;
         return (
@@ -28,7 +28,7 @@ export class Header extends Component {
                     Block Buster HeadLines
                 </h1>
                 <input
-                    ref={this.searchBarRef}
+                    ref={this.props.innerRef}
                     type="search"
                     className="form-control"
                     placeholder="Type Anything & Press Enter To Search"
@@ -56,4 +56,5 @@ export class Header extends Component {
     }
 }
 
-export default Header
+
+export default React.forwardRef((props, ref) => <Header {...props} innerRef={ref} />)

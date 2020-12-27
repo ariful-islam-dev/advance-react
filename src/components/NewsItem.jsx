@@ -4,9 +4,9 @@ function geDateString(dateTimeStr) {
     return new Date(dateTimeStr).toDateString()
 }
 
-function NewsItem({ item }) {
+const NewsItem = React.forwardRef(({ item }, ref) => {
     return (
-        <div className="card mb-4">
+        <div ref={el=>ref.push(el)} className="card mb-4">
             {item.urlToImage && (
                 <img className="card-img-top" src={item.urlToImage} alt={item.title} />
             )}
@@ -15,8 +15,8 @@ function NewsItem({ item }) {
                     <h5 className="card-title">{item.title}</h5>
                 </a>
                 <p>
-                    {item.content} <br/>
-                   
+                    {item.content} <br />
+
                 </p><a href={item.url} className="ms-auto" target='_blank' rel='noopener noreferrer'>See More .....</a>
                 <div className="mt-2 d-flex justify-content-between">
                     <small>
@@ -40,6 +40,6 @@ function NewsItem({ item }) {
             </div>
         </div>
     )
-}
+})
 
 export default NewsItem
